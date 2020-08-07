@@ -5,6 +5,8 @@ const path = require('path')
 const geoCode = require('../Utils/geocode');
 const foreCast = require('../Utils/weather')
 
+const port = process.env.PORT || 3000;
+
 const pages = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -67,6 +69,6 @@ app.get('*', (req, res) => {
     res.render('404', {title : 'Forbidden', name : 'Abhishek Verma', errorMsg : 'Page was never here'})
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server started')
 })
