@@ -14,8 +14,8 @@ weatherForm.addEventListener('submit', (e) => {
     message2.textContent = '';
     fetch(url).then((res) => {
         res.json().then((data) => {
-            if(data.error){
-                message1.textContent = data.error;
+            if(data.e){
+                message1.textContent = data.e;            
             } else{
                 message1.textContent = data.place;
                 message2.textContent = dataContent(data.forecast.current);
@@ -26,5 +26,5 @@ weatherForm.addEventListener('submit', (e) => {
 })
 
 function dataContent(forecast){
-    return 'Weather Report:\n' + forecast.weather_descriptions[0] + '. The temperature outside is ' + forecast.temperature + ', but it feels like ' + forecast.feelslike;
+    return 'Weather Report:\n' + forecast.weather_descriptions[0] + '. The temperature outside is ' + forecast.temperature + ', but it feels like ' + forecast.feelslike + '. Humidity is at ' + forecast.humidity + '.';
 }
